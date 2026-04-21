@@ -1,0 +1,90 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<title>The Letter — Majira Marefu</title>
+<meta name="description" content="If you would like to join us, write to us." />
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,400;0,9..144,500;1,9..144,300;1,9..144,400&family=Inter+Tight:wght@300;400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/styles.css" />
+</head>
+<body>
+
+<nav class="nav">
+  <a class="brand" href="index.html">Majira <em>Marefu</em></a>
+  <ul>
+    <li><a href="chapter.html">The Chapter</a></li>
+    <li><a href="arc.html">The Arc</a></li>
+    <li><a href="journeys.html">Journeys</a></li>
+    <li><a href="hand.html">The Hand</a></li>
+    <li><a href="guestbook.html">Guestbook</a></li>
+    <li><a href="letter.html" class="active">Letter</a></li>
+  </ul>
+  <button class="nav-toggle" aria-label="Menu">Menu</button>
+</nav>
+
+<header class="page-head">
+  <div class="container">
+    <div class="eyebrow reveal">The Letter — VI</div>
+    <h1 class="reveal" data-delay="1">Write to <em>us</em>.</h1>
+    <p class="lede reveal" data-delay="2">
+      If you would like to join us, write to us. Tell us who you are, and what brought you here, and which journey caught your eye. We reply to every letter, usually within three days.
+    </p>
+  </div>
+</header>
+
+<section class="section">
+  <div class="container" style="display:grid;grid-template-columns:1fr;max-width:680px;margin:0 auto">
+
+    <form class="form reveal" id="letter-form" data-success-panel="letter-success" novalidate>
+      <div class="field">
+        <label for="name">Your name</label>
+        <input type="text" id="name" name="name" autocomplete="name" required />
+      </div>
+      <div class="field">
+        <label for="email">Where we can write back</label>
+        <input type="email" id="email" name="email" autocomplete="email" required />
+        <div class="hint">We do not add you to a mailing list. This is just how we reply.</div>
+      </div>
+      <div class="field">
+        <label for="message">Your letter</label>
+        <textarea id="message" name="message" rows="6" required placeholder="Tell us who you are and what brought you here."></textarea>
+      </div>
+      <div class="field" style="margin-top:2.4rem">
+        <button class="btn btn--solid" type="submit">Send <span class="arrow">→</span></button>
+      </div>
+    </form>
+
+    <div id="letter-success" class="reveal" style="display:none;text-align:center;padding:3rem 0">
+      <span class="divider" style="margin:0 auto 2rem"></span>
+      <h3 style="margin-bottom:1.2rem">Your letter has <em>arrived</em>.</h3>
+      <p style="max-width:44ch;margin:0 auto;color:var(--umber)">
+        We will write back within three days. In the meantime, you might like to read <a href="chapter.html" style="color:var(--ochre);border-bottom:1px solid var(--ochre)">the chapter</a>, or look at the <a href="arc.html" style="color:var(--ochre);border-bottom:1px solid var(--ochre)">four stops</a> that make the arc.
+      </p>
+      <p class="sw" lang="sw" style="font-size:1.4rem;margin-top:2.4rem">Asante.</p>
+      <p class="sw-trans" style="display:inline">Thank you.</p>
+    </div>
+
+  </div>
+</section>
+
+<footer>
+  <div class="container">
+    <div class="mark">Majira Marefu</div>
+    <ul>
+      <li><a href="chapter.html">Chapter</a></li>
+      <li><a href="journeys.html">Journeys</a></li>
+      <li><a href="guestbook.html">Guestbook</a></li>
+    </ul>
+    <div>August 2027</div>
+  </div>
+</footer>
+
+<script src="assets/main.js"></script>
+<script>
+  handleMockSubmit(document.getElementById('letter-form'));
+</script>
+</body>
+</html>

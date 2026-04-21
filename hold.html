@@ -1,0 +1,224 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<title>Hold a place — Majira Marefu</title>
+<meta name="description" content="Reserve your place. Fifty per cent deposit, balance due ninety days before arrival." />
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,400;0,9..144,500;1,9..144,300;1,9..144,400&family=Inter+Tight:wght@300;400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/styles.css" />
+</head>
+<body>
+
+<nav class="nav">
+  <a class="brand" href="index.html">Majira <em>Marefu</em></a>
+  <ul>
+    <li><a href="chapter.html">The Chapter</a></li>
+    <li><a href="arc.html">The Arc</a></li>
+    <li><a href="journeys.html">Journeys</a></li>
+    <li><a href="hand.html">The Hand</a></li>
+    <li><a href="guestbook.html">Guestbook</a></li>
+    <li><a href="letter.html">Letter</a></li>
+  </ul>
+  <button class="nav-toggle" aria-label="Menu">Menu</button>
+</nav>
+
+<header class="page-head" style="padding-bottom:clamp(2rem,4vw,3rem)">
+  <div class="container">
+    <div class="eyebrow reveal" id="tier-eyebrow">Reserving · —</div>
+    <h1 class="reveal" data-delay="1">Hold a <em>place</em>.</h1>
+    <p class="lede reveal" data-delay="2">
+      A fifty per cent deposit holds your place. The balance is due ninety days before arrival. Everything is refundable up to T-120, and half-refundable up to T-60. Beyond that, transferable but not refundable.
+    </p>
+  </div>
+</header>
+
+<section class="section--tight">
+  <div class="container" style="max-width:720px;margin:0 auto">
+
+    <form class="form" id="hold-form" novalidate>
+
+      <!-- 1 Select -->
+      <div class="step active">
+        <div class="eyebrow" style="margin-bottom:1rem">Step one of four · The journey</div>
+        <div class="step-q" id="tier-q">Confirm your journey.</div>
+        <div class="field">
+          <label for="h-tier">Journey</label>
+          <select id="h-tier" name="tier" required>
+            <option value="mwanzo">Mwanzo — seven nights — from $4,500</option>
+            <option value="pwani">Pwani — twelve nights — from $9,800</option>
+            <option value="safari">Safari — eighteen nights — from $16,500</option>
+          </select>
+        </div>
+        <div class="field">
+          <label for="h-guests">Number of guests</label>
+          <select id="h-guests" name="guests" required>
+            <option value="1">One</option>
+            <option value="2" selected>Two</option>
+            <option value="3">Three</option>
+            <option value="4">Four</option>
+          </select>
+        </div>
+        <div class="field">
+          <label for="h-window">Preferred window</label>
+          <select id="h-window" name="window" required>
+            <option>August — primary window</option>
+            <option>Early September</option>
+            <option>Late September — for Safari only</option>
+            <option>No preference</option>
+          </select>
+        </div>
+      </div>
+
+      <!-- 2 Details -->
+      <div class="step">
+        <div class="eyebrow" style="margin-bottom:1rem">Step two · Who you are</div>
+        <div class="step-q">Tell us a little about you.</div>
+        <div class="field">
+          <label>Your name</label>
+          <input type="text" name="name" autocomplete="name" required />
+        </div>
+        <div class="field">
+          <label>Email</label>
+          <input type="email" name="email" autocomplete="email" required />
+        </div>
+        <div class="field">
+          <label>Phone</label>
+          <input type="tel" name="phone" autocomplete="tel" required />
+        </div>
+        <div class="field">
+          <label>Passport issuing country</label>
+          <input type="text" name="passport_country" placeholder="For visa logistics" />
+        </div>
+        <div class="field">
+          <label>Dietary notes (optional)</label>
+          <input type="text" name="diet" placeholder="Vegetarian, allergies, fasting dates …" />
+        </div>
+        <div class="field">
+          <label>Anything we should know?</label>
+          <textarea name="notes" rows="4" placeholder="Travelling companion, access needs, something on your mind …"></textarea>
+        </div>
+      </div>
+
+      <!-- 3 Deposit -->
+      <div class="step">
+        <div class="eyebrow" style="margin-bottom:1rem">Step three · The deposit</div>
+        <div class="step-q">Fifty per cent now. The rest ninety days before arrival.</div>
+
+        <div style="background:var(--oat);padding:1.8rem 2rem;border-radius:2px;margin-bottom:2rem">
+          <div style="display:flex;justify-content:space-between;font-size:0.78rem;letter-spacing:0.22em;text-transform:uppercase;color:var(--umber);margin-bottom:0.8rem">
+            <span id="sum-tier">Mwanzo</span>
+            <span id="sum-guests">2 guests</span>
+          </div>
+          <div style="font-family:var(--serif);font-size:1.4rem;color:var(--umber-deep);margin-bottom:0.6rem" id="sum-total">$9,000 total</div>
+          <div style="font-size:0.88rem;color:var(--umber)" id="sum-deposit">Deposit today: $4,500 · balance due T-90</div>
+        </div>
+
+        <div style="border:1px dashed rgba(107,74,43,0.35);padding:1.6rem;border-radius:2px;background:transparent">
+          <p style="font-size:0.82rem;letter-spacing:0.22em;text-transform:uppercase;color:var(--ochre);margin-bottom:0.8rem">Payment · demo mode</p>
+          <p style="font-size:0.94rem;color:var(--umber);line-height:1.6">
+            In the live build, this step hands off to Stripe Checkout for the deposit, and stores a pending reservation in Supabase. The balance is invoiced automatically at T-120. A second payment adapter allows AXK Network rails to be swapped in as primary processor without refactoring.
+          </p>
+        </div>
+      </div>
+
+      <!-- 4 Confirm -->
+      <div class="step">
+        <div class="eyebrow" style="margin-bottom:1rem">Step four · Confirm</div>
+        <div class="step-q">Last look.</div>
+        <p style="font-size:0.96rem;color:var(--umber);line-height:1.7;margin-bottom:1.4rem">
+          We will email you a confirmation with a reference number and a single direct contact at our concierge desk within the hour. Two weeks before you travel you will receive a simple pre-arrival note — nothing alarming, mostly what to pack and what not to worry about.
+        </p>
+        <p class="step-hint">By submitting, you accept the deposit terms and the cancellation policy. Neither is a trap. We reply to every question on the same day.</p>
+      </div>
+
+      <div class="step-dots" aria-hidden="true"></div>
+
+      <div class="step-controls">
+        <button class="link-plain" data-prev>← Back</button>
+        <button class="btn btn--solid" data-next type="button">Continue <span class="arrow">→</span></button>
+      </div>
+
+    </form>
+
+    <div id="hold-success" style="display:none;text-align:center;padding:3rem 0">
+      <span class="divider" style="margin:0 auto 2rem"></span>
+      <h3 style="margin-bottom:1.2rem">Your place is <em>held</em>.</h3>
+      <p style="max-width:48ch;margin:0 auto;color:var(--umber)">
+        A confirmation is on its way. Your reference number is <strong id="ref-num" style="font-family:var(--serif);color:var(--umber-deep);letter-spacing:0.08em"></strong>. Your concierge contact is <a href="letter.html" style="color:var(--ochre);border-bottom:1px solid var(--ochre)">the letter</a> — write at any time.
+      </p>
+      <p class="sw" lang="sw" style="font-size:1.4rem;margin-top:2.4rem">Karibu tena.</p>
+      <p class="sw-trans" style="display:inline">Welcome back.</p>
+    </div>
+
+  </div>
+</section>
+
+<footer>
+  <div class="container">
+    <div class="mark">Majira Marefu</div>
+    <ul>
+      <li><a href="journeys.html">All journeys</a></li>
+      <li><a href="chapter.html">Chapter</a></li>
+      <li><a href="letter.html">Letter</a></li>
+    </ul>
+    <div>August 2027</div>
+  </div>
+</footer>
+
+<script src="assets/main.js"></script>
+<script>
+  // Preselect tier from ?tier= query param
+  const params = new URLSearchParams(location.search);
+  const tierParam = params.get('tier');
+  const tierNames = {
+    mwanzo: { name: 'Mwanzo', price: 4500, nights: 7 },
+    pwani:  { name: 'Pwani',  price: 9800, nights: 12 },
+    safari: { name: 'Safari', price: 16500, nights: 18 },
+  };
+  const tierSelect = document.getElementById('h-tier');
+  const guestSelect = document.getElementById('h-guests');
+  const eyebrow = document.getElementById('tier-eyebrow');
+  const tierQ = document.getElementById('tier-q');
+
+  if (tierParam && tierNames[tierParam]) {
+    tierSelect.value = tierParam;
+    eyebrow.textContent = `Reserving · ${tierNames[tierParam].name} · ${tierNames[tierParam].nights} nights`;
+    tierQ.textContent = `Confirm ${tierNames[tierParam].name}.`;
+  }
+
+  function fmt(n) { return '$' + n.toLocaleString('en-US'); }
+  function refresh() {
+    const key = tierSelect.value;
+    const t = tierNames[key];
+    const g = parseInt(guestSelect.value, 10);
+    const total = t.price * g;
+    const deposit = Math.round(total / 2);
+    document.getElementById('sum-tier').textContent = t.name + ' · ' + t.nights + ' nights';
+    document.getElementById('sum-guests').textContent = g + (g === 1 ? ' guest' : ' guests');
+    document.getElementById('sum-total').textContent = fmt(total) + ' total';
+    document.getElementById('sum-deposit').textContent = 'Deposit today: ' + fmt(deposit) + ' · balance due T-90';
+    eyebrow.textContent = `Reserving · ${t.name} · ${t.nights} nights`;
+    tierQ.textContent = `Confirm ${t.name}.`;
+  }
+  tierSelect.addEventListener('change', refresh);
+  guestSelect.addEventListener('change', refresh);
+  refresh();
+
+  initStepForm('hold-form', {
+    onSubmit: function (data) {
+      console.log('[majira] reservation:', Object.fromEntries(data));
+      // Reference number: "MJ-" + random 6 hex
+      const ref = 'MJ-' + Math.random().toString(16).slice(2, 8).toUpperCase();
+      document.getElementById('ref-num').textContent = ref;
+      document.getElementById('hold-form').style.display = 'none';
+      const success = document.getElementById('hold-success');
+      success.style.display = 'block';
+      success.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    }
+  });
+</script>
+</body>
+</html>
