@@ -94,7 +94,15 @@ export function Chapter() {
               <span className="sw" lang="sw">Marefu</span> is thirty. The long one. Twelve seats. By application.
             </p>
             <p>
-              You can read about them on{' '}
+              Firms, foundations, universities, and sovereign delegations commission private versions of the same arc
+              for their own cohorts — a practice we describe, with our usual restraint, on{' '}
+              <Link to="/partners" className="inline">
+                the partners page
+              </Link>
+              .
+            </p>
+            <p>
+              You can read about the individual journeys on{' '}
               <Link to="/journeys" className="inline">
                 the next page
               </Link>

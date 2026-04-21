@@ -1,5 +1,5 @@
 import { motion } from 'framer-motion';
-import { useNavigate } from 'react-router-dom';
+import { useNavigate, Link } from 'react-router-dom';
 import { Footer } from '../components/Footer';
 import { KenBurns } from '../components/KenBurns';
 import { MagneticButton } from '../components/MagneticButton';
@@ -71,7 +71,20 @@ export function Landing() {
           >
             Enter <span className="arrow">→</span>
           </MagneticButton>
-          <div className="hero-hint">By invitation · Wave I opens March 2027</div>
+          <div className="hero-hint">
+            By invitation · Wave I opens March 2027 &nbsp;·&nbsp;{' '}
+            <Link
+              to="/partners"
+              style={{
+                color: 'var(--bone)',
+                opacity: 0.78,
+                borderBottom: '1px solid rgba(244,239,230,0.4)',
+                paddingBottom: '2px',
+              }}
+            >
+              For institutions →
+            </Link>
+          </div>
         </motion.div>
       </section>
 

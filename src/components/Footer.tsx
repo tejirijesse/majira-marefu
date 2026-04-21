@@ -8,6 +8,7 @@ interface FooterProps {
 const DEFAULT_LINKS = [
   { to: '/chapter', label: 'Chapter' },
   { to: '/journeys', label: 'Journeys' },
+  { to: '/partners', label: 'Partners' },
   { to: '/letter', label: 'Letter' },
 ];
 

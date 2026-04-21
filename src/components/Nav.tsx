@@ -7,10 +7,11 @@ interface NavProps {
 }
 
 const LINKS = [
-  { to: '/chapter', label: 'The Chapter' },
-  { to: '/arc', label: 'The Arc' },
+  { to: '/chapter', label: 'Chapter' },
+  { to: '/arc', label: 'Arc' },
   { to: '/journeys', label: 'Journeys' },
-  { to: '/hand', label: 'The Hand' },
+  { to: '/hand', label: 'Hand' },
+  { to: '/partners', label: 'Partners' },
   { to: '/guestbook', label: 'Guestbook' },
   { to: '/letter', label: 'Letter' },
 ];

@@ -78,6 +78,71 @@ export function Journeys() {
         </div>
       </section>
 
+      {/* For institutions — B2B entry point */}
+      <section className="section--tight">
+        <div
+          className="container"
+          style={{
+            display: 'grid',
+            gridTemplateColumns: '1.1fr 1fr',
+            gap: 'clamp(2rem, 5vw, 5rem)',
+            alignItems: 'center',
+          }}
+        >
+          <div>
+            <Reveal as="span" className="eyebrow">
+              Also — for groups of twelve or more
+            </Reveal>
+            <Reveal>
+              <h3 style={{ fontSize: 'clamp(1.6rem, 3vw, 2.4rem)', maxWidth: '18ch' }}>
+                Commission a <em>private</em> season.
+              </h3>
+            </Reveal>
+            <Reveal delay={0.1}>
+              <p
+                style={{
+                  marginTop: '1.4rem',
+                  fontSize: 'clamp(1rem, 1.2vw, 1.12rem)',
+                  color: 'var(--umber)',
+                  lineHeight: 1.7,
+                  maxWidth: '52ch',
+                }}
+              >
+                Firms, sovereign delegations, foundations, and universities commission reserved weeks or full-season
+                buyouts. We design around your objective and calendar — not around a template. Typical parties of
+                twelve to eighty, six to twelve months' lead time.
+              </p>
+            </Reveal>
+            <Reveal delay={0.2}>
+              <div style={{ marginTop: '2rem', display: 'flex', gap: '1rem', flexWrap: 'wrap' }}>
+                <Link to="/partners" className="btn">
+                  How partnerships work <span className="arrow">→</span>
+                </Link>
+                <Link to="/brief" className="link-plain">
+                  Or send a confidential brief
+                </Link>
+              </div>
+            </Reveal>
+          </div>
+          <Reveal as="span">
+            <div
+              style={{
+                aspectRatio: '4/3',
+                overflow: 'hidden',
+                borderRadius: '2px',
+              }}
+            >
+              <img
+                loading="lazy"
+                src="https://images.unsplash.com/photo-1565007548041-a4caac3d2100?auto=format&fit=crop&w=1600&q=80"
+                alt="Private residence on the Swahili coast."
+                style={{ width: '100%', height: '100%', objectFit: 'cover' }}
+              />
+            </div>
+          </Reveal>
+        </div>
+      </section>
+
       <Footer
         links={[
           { to: '/chapter', label: 'Chapter' },

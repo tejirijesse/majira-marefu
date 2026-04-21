@@ -16,6 +16,8 @@ import { Guestbook } from './pages/Guestbook';
 import { Letter } from './pages/Letter';
 import { Apply } from './pages/Apply';
 import { Hold } from './pages/Hold';
+import { Partners } from './pages/Partners';
+import { Brief } from './pages/Brief';
 
 /** Scroll-to-top on route change. */
 function ScrollToTop() {
@@ -46,6 +48,8 @@ export default function App() {
           <Route path="/letter" element={<Letter />} />
           <Route path="/apply" element={<Apply />} />
           <Route path="/hold" element={<Hold />} />
+          <Route path="/partners" element={<Partners />} />
+          <Route path="/brief" element={<Brief />} />
           <Route path="*" element={<Navigate to="/" replace />} />
         </Routes>
       </AnimatePresence>
